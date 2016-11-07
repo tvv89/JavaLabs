@@ -6,18 +6,18 @@ package example;
 
 class Arithmetic
 {
-    public int add(int a,int b)
+    public int add(Integer a,Integer b)
     {
         int res;
-        res = a+b;
+        res = a.intValue()+b.intValue();
         return res;
     }
 };
 class Adder extends Arithmetic
 {
-    boolean check(int a, int b)
+    boolean check(Integer a, Integer b)
     {
-        if (a>=b) return true;
+        if (a.intValue()>=b.intValue()) return true;
         else return false;
     }
 };
@@ -25,7 +25,9 @@ public class task_3_2 {
     public static void main(String[] args)
     {
         Adder math_test = new Adder();
-        System.out.println(math_test.add(2,1));
-        System.out.println(math_test.check(2,1));
+        Integer x = new Integer(2);
+        Integer y = new Integer(1);
+        System.out.println(math_test.add(x,y));
+        System.out.println(math_test.check(x,y));
     };
 }
