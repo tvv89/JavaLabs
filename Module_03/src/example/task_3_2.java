@@ -24,6 +24,8 @@ class Adder extends Arithmetic
 public class task_3_2 {
     public static void main(String[] args)
     {
-
+        Adder math_test = new Adder();
+        System.out.println(math_test.add(2,1));
+        System.out.println(math_test.check(2,1));
     };
 }
