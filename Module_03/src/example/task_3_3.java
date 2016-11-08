@@ -7,50 +7,125 @@ import java.util.Date;
  */
 class Course
 {
-    Date startDate;
-    String name;
-    int hoursDuration;
-    String teacherName;
+    private Date startDate;
+    private String name;
+    private int hoursDuration;
+    private String teacherName;
     public Course(){};
     public Course( Date startDate,String name)
     {
-        this.startDate = startDate;
-        this.name = name;
+        this.setStartDate(startDate);
+        this.setName(name);
     };
     public Course(int hourseDuration, String name, String teacherName)
     {
-        this.hoursDuration = hourseDuration;
-        this.name = name;
-        this.teacherName = teacherName;
+        this.setHoursDuration(hourseDuration);
+        this.setName(name);
+        this.setTeacherName(teacherName);
     };
+
+
+    /*getters & setters*/
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setHoursDuration(int hoursDuration) {
+        this.hoursDuration = hoursDuration;
+    }
+
+    public void setTeacherName(String teacherName) {
+        this.teacherName = teacherName;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getHoursDuration() {
+        return hoursDuration;
+    }
+
+    public String getTeacherName() {
+        return teacherName;
+    }
 };
 class Student
 {
-    String firstName;
-    String lastName;
-    int group;
-    Course[] coursesTaken;
-    int age;
+    private String firstName;
+    private String lastName;
+    private int group;
+    private Course[] coursesTaken;
+    private int age;
 
     public Student() {};
     public Student(String firstName, String lastName, int group)
     {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.group = group;
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.setGroup(group);
     };
     public Student(String lastName, Course[] coursesTaken)
     {
-        this.lastName = lastName;
-        this.coursesTaken = coursesTaken;
+        this.setLastName(lastName);
+        this.setCoursesTaken(coursesTaken);
 
     };
+
+    /*getters & setters*/
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public void setGroup(int group) {
+        this.group = group;
+    }
+
+    public void setCoursesTaken(Course[] coursesTaken) {
+        this.coursesTaken = coursesTaken;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public int getGroup() {
+        return group;
+    }
+
+    public Course[] getCoursesTaken() {
+        return coursesTaken;
+    }
+
+    public int getAge() {
+        return age;
+    }
 };
 class CollegeStudent extends Student
 {
-    String collegeName = "";
-    int rating = 0;
-    long id = 0;
+    private String collegeName = "";
+    private int rating = 0;
+    private long id = 0;
     public CollegeStudent() {super();}
     public CollegeStudent(String firstName, String lastName, int group)
     {
@@ -65,14 +140,38 @@ class CollegeStudent extends Student
                           Course[] coursesTaken, int age, String collegeName, int rating, long id)
     {
         super (firstName, lastName,group);
-        int c_count  = coursesTaken.length;
-        this.coursesTaken = coursesTaken;
-        this.age = age;
-        this.collegeName = collegeName;
-        this.rating = rating;
-        this.id = id;
+        this.setCoursesTaken(coursesTaken);
+        this.setAge(age);
+        this.setCollegeName(collegeName);
+        this.setRating(rating);
+        this.setId(id);
 
     };
+
+    /*getters & setters*/
+    public void setCollegeName(String collegeName) {
+        this.collegeName = collegeName;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getCollegeName() {
+        return collegeName;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public long getId() {
+        return id;
+    }
 };
 class SpecialStudent extends CollegeStudent
 {
@@ -90,9 +189,11 @@ class SpecialStudent extends CollegeStudent
     public SpecialStudent(long secretKey)
     {
        super();
-        this.secretKey = secretKey;
+        this.setSecretKey(secretKey);
     };
 
+
+    /*getters & setters*/
     public long getSecretKey() {
         return secretKey;
     }
