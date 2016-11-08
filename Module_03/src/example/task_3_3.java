@@ -220,7 +220,7 @@ public class task_3_3 {
         {
             String nameC = "Course_"+i;
             Date dateC = new Date();
-            courses_all[i] = new Course(dateC,nameC); // this is 5 constructors )))
+            courses_all[i] = new Course(dateC,nameC); // 5 constructors )))
 
         }
         Student st1 = new Student("first Name 1","last Name 1", 1);
