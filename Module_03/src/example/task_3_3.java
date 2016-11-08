@@ -11,6 +11,7 @@ class Course
     String name;
     int hoursDuration;
     String teacherName;
+    public Course(){};
     public Course( Date startDate,String name)
     {
         this.startDate = startDate;
@@ -41,11 +42,8 @@ class Student
     public Student(String lastName, Course[] coursesTaken)
     {
         this.lastName = lastName;
-        int c_count  = coursesTaken.length;
-        for (int i =0; i<c_count; i++)
-        {
-            this.coursesTaken[i] = coursesTaken[i];
-        }
+        this.coursesTaken = coursesTaken;
+
     };
 };
 class CollegeStudent extends Student
@@ -68,10 +66,7 @@ class CollegeStudent extends Student
     {
         super (firstName, lastName,group);
         int c_count  = coursesTaken.length;
-        for (int i =0; i<c_count; i++)
-        {
-            this.coursesTaken[i] = coursesTaken[i];
-        }
+        this.coursesTaken = coursesTaken;
         this.age = age;
         this.collegeName = collegeName;
         this.rating = rating;
@@ -94,7 +89,7 @@ class SpecialStudent extends CollegeStudent
     };
     public SpecialStudent(long secretKey)
     {
-        super();
+       super();
         this.secretKey = secretKey;
     };
 
@@ -127,6 +122,16 @@ public class task_3_3 {
             courses_all[i] = new Course(dateC,nameC);
 
         }
+        Student st1 = new Student("first Name 1","last Name 1", 1);
+        Student st2 = new Student("first Name 2",courses_all);
+        CollegeStudent st3 = new CollegeStudent("first Name 3", "last Name 3", 3);
+        CollegeStudent st4 = new CollegeStudent("first Name 4", courses_all);
+        CollegeStudent st5 = new CollegeStudent("first Name 5", "last Name 5",5,courses_all,18,"college 5",5,55555);
+        SpecialStudent st6 = new SpecialStudent("first Name 6", "last Name 6", 6);
+        SpecialStudent st7 = new SpecialStudent("first Name 7", "last Name 7",7,courses_all,21,"college 7",7,77777);
+        SpecialStudent st8 = new SpecialStudent(7654321);
+
+
         System.out.println("Go");
         System.out.println("IT");
     };
