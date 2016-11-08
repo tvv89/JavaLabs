@@ -213,15 +213,13 @@ class SpecialStudent extends CollegeStudent
 
 
 public class task_3_3 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args){
         Course[] courses_all = new Course[5];
         for (int i = 0; i<5; i++)
         {
             String nameC = "Course_"+i;
             Date dateC = new Date();
             courses_all[i] = new Course(dateC,nameC); // 5 constructors )))
-
         }
         Student st1 = new Student("first Name 1","last Name 1", 1);
         Student st2 = new Student("first Name 2",courses_all);
@@ -231,7 +229,6 @@ public class task_3_3 {
         SpecialStudent st6 = new SpecialStudent("first Name 6", "last Name 6", 6);
         SpecialStudent st7 = new SpecialStudent("first Name 7", "last Name 7",7,courses_all,21,"college 7",7,77777);
         SpecialStudent st8 = new SpecialStudent(7654321);
-
 
         System.out.println("Go");
         System.out.println("IT");
