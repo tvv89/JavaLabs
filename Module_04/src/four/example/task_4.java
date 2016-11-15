@@ -329,10 +329,84 @@ public class task_4 {
         User usr2 = new User(22222222,"Mr. Been",350,14,"GolbalLogic",3800,LondonCan);
         User usr3 = new User(33333333,"Gans Schmidt",1000,13,"Epam",2700,DeucheBank);
         User usr4 = new User(44444444,"Ivanov Ivan",80,12,"SoftDev",400,OshadBank);
-        User usr5 = new User(55555555,"Li Si Cin",700,11,"IT.devel.cech",1200,KomunaBank);
-        User usr6 = new User(66666666,"Hu win Chan",800,10,"IT.devel.cech",1300,GBBank);
+        User usr5 = new User(55555555,"Li Si Cin",700,11,"ChinaSoft",1200,KomunaBank);
+        User usr6 = new User(66666666,"Hu win Chan",800,10,"IT.hueWay",1300,GBBank);
 
+        BankSystemImpl bankomat_operation = new BankSystemImpl();
+        // for User #1
+        System.out.println(usr1.toString());
+        System.out.print(usr1.balance+" ");
+        bankomat_operation.withdrawOfUser(usr1,100);
+        System.out.print(usr1.balance+" ");
+        bankomat_operation.fundUser(usr1,100);
+        System.out.print(usr1.balance+" ");
+        bankomat_operation.transferMoney(usr1,usr2,100);
+        System.out.print(usr1.balance+" ");
+        bankomat_operation.paySalary(usr1);
+        System.out.println(usr1.balance);
+
+        // for User #2
         System.out.println(usr2.toString());
+        System.out.print(usr2.balance+" ");
+        bankomat_operation.withdrawOfUser(usr2,100);
+        System.out.print(usr2.balance+" ");
+        bankomat_operation.fundUser(usr2,100);
+        System.out.print(usr2.balance+" ");
+        bankomat_operation.transferMoney(usr2,usr3,100);
+        System.out.print(usr2.balance+" ");
+        bankomat_operation.paySalary(usr2);
+        System.out.println(usr2.balance);
+
+        // for User #3
+        System.out.println(usr3.toString());
+        System.out.print(usr3.balance+" ");
+        bankomat_operation.withdrawOfUser(usr3,100);
+        System.out.print(usr3.balance+" ");
+        bankomat_operation.fundUser(usr3,100);
+        System.out.print(usr3.balance+" ");
+        bankomat_operation.transferMoney(usr3,usr4,100);
+        System.out.print(usr3.balance+" ");
+        bankomat_operation.paySalary(usr3);
+        System.out.println(usr3.balance);
+
+        // for User #4
+        System.out.println(usr4.toString());
+        System.out.print(usr4.balance+" ");
+        bankomat_operation.withdrawOfUser(usr4,100);
+        System.out.print(usr4.balance+" ");
+        bankomat_operation.fundUser(usr4,100);
+        System.out.print(usr4.balance+" ");
+        bankomat_operation.transferMoney(usr4,usr5,100);
+        System.out.print(usr4.balance+" ");
+        bankomat_operation.paySalary(usr4);
+        System.out.println(usr4.balance);
+
+        // for User #5
+        System.out.println(usr5.toString());
+        System.out.print(usr5.balance+" ");
+        bankomat_operation.withdrawOfUser(usr5,100);
+        System.out.print(usr5.balance+" ");
+        bankomat_operation.fundUser(usr5,100);
+        System.out.print(usr5.balance+" ");
+        bankomat_operation.transferMoney(usr5,usr6,100);
+        System.out.print(usr5.balance+" ");
+        bankomat_operation.paySalary(usr6);
+        System.out.println(usr5.balance);
+
+        // for User #6
+        System.out.println(usr6.toString());
+        System.out.print(usr6.balance+" ");
+        bankomat_operation.withdrawOfUser(usr6,100);
+        System.out.print(usr6.balance+" ");
+        bankomat_operation.fundUser(usr6,100);
+        System.out.print(usr6.balance+" ");
+        bankomat_operation.transferMoney(usr6,usr1,100);
+        System.out.print(usr6.balance+" ");
+        bankomat_operation.paySalary(usr6);
+        System.out.println(usr6.balance);
+
+
+
 
     }
 }
