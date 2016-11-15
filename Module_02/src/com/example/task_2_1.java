@@ -72,17 +72,14 @@ public class task_2_1 {
         for (double i : array) {res *= i;}
         return res;
     }
-    public void modulus(int[] array)
+    public int modulus(int[] array)
     {
-        int f_el = Math.abs(array[0]);
-        int l_el = Math.abs(array[array.length-1]);
-        System.out.println("Modulus first element: "+f_el+" and last: "+l_el);
+        return array[0] % array[array.length-1];
     }
-    public void modulus(double[] array)
+    public double modulus(double[] array)
     {
-        double f_el = Math.abs(array[0]);
-        double l_el = Math.abs(array[array.length-1]);
-        System.out.println("Modulus first element: "+f_el+" and last: "+l_el);
+        return array[0] % array[array.length-1];
+
     }
 
     public int secondLargest(int[] array)
@@ -98,7 +95,7 @@ public class task_2_1 {
 
 
     public static void main(String[] args) {
-        int[] int_arr = {100,2,3,4,55,6,7,8,9,1};
+        int[] int_arr = {13,2,3,4,55,6,7,8,9,10};
         double[] double_arr = {1.1,2.1,3.1,4.1,5.1,6.1,7.1,8.1,9.1,10.1};
         //System.out.println);
         task_2_1 ex = new task_2_1();
@@ -113,8 +110,8 @@ public class task_2_1 {
         System.out.println("Max Positive double: "+ex.maxPositive(double_arr));
         System.out.println("Multiplication int: "+ex.multiplication(int_arr));
         System.out.println("Multiplication double: "+ex.multiplication(double_arr));
-        ex.modulus(int_arr);
-        ex.modulus(double_arr);
+        System.out.println("Modulus int: "+ex.modulus(int_arr));
+        System.out.println("Modulus double: "+ex.modulus(double_arr));
         System.out.println("secondLargest int: "+ex.secondLargest(int_arr));
         System.out.println("secondLargest double: "+ex.secondLargest(double_arr));
 
