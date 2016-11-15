@@ -3,8 +3,16 @@ package four.example;
 /**
  * Created by Volodymyr Tymchuk on 15.11.2016 for JavaLabs.
  */
+
+
+/**********************
+ ******* task #2 ******
+ **********************/
 enum Currencys {USD, EUR};
 
+/**********************
+ ******* task #1 ******
+ **********************/
 abstract class Bank
 {
 
@@ -91,6 +99,10 @@ abstract class Bank
         this.totalCapital = totalCapital;
     }
 }
+
+/**********************
+ ******* task #3 ******
+ **********************/
 
 class USBank extends Bank
 {
@@ -226,6 +238,40 @@ class ChinaBank extends Bank
     }
 
 }
+
+/*********************
+******* task #4 ******
+**********************/
+
+class User
+{
+    long id;
+    String name;
+    double balance;
+    int monthsOfEmployment;
+    String companyName;
+    int salary;
+    Bank bank;
+
+    @Override
+    public String toString()
+    {
+        return this.name+" works in "+this.companyName;
+    }
+}
+
+/*********************
+ ******* task #5 ******
+ **********************/
+interface BankSystem
+{
+    void withdrawOfUser(User user, int amount);
+    void fundUser(User user, int amount);
+    void transferMoney(User fromUser, User toUser, int amount);
+    void paySalary(User user);
+}
+
+
 public class task_4 {
     public static void main (String[] args)
     {
