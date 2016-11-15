@@ -253,10 +253,24 @@ class User
     int salary;
     Bank bank;
 
+    public User(long id, String name, double balance, int monthsOfEmployment, String companyName, int salary, Bank bank) {
+        this.id = id;
+        this.name = name;
+        this.balance = balance;
+        this.monthsOfEmployment = monthsOfEmployment;
+        this.companyName = companyName;
+        this.salary = salary;
+        this.bank = bank;
+    }
+
     @Override
     public String toString()
     {
         return this.name+" works in "+this.companyName;
+    }
+    void withdrawOfUser(User user,int amount)
+    {
+
     }
 }
 
@@ -271,10 +285,54 @@ interface BankSystem
     void paySalary(User user);
 }
 
+class BankSystemImpl implements BankSystem
+{
+    public void withdrawOfUser(User user, int amount) {
+        if ((amount<user.bank.getLimitOfWithdrawal() || user.bank.getLimitOfWithdrawal()==0) && amount>0)
+        user.balance -= amount*(1+0.01*user.bank.getCommission(amount));
+    }
+
+    public void fundUser(User user, int amount) {
+        if ((amount<user.bank.getLimitOfFunding() || user.bank.getLimitOfWithdrawal()==0) && amount>0)
+            user.balance += amount;
+    }
+
+    public void transferMoney(User fromUser, User toUser, int amount) {
+        //math operation
+        double bal_fromUser = fromUser.balance - amount*(1+0.01*fromUser.bank.getCommission(amount));
+        if (bal_fromUser>0 && fromUser.bank.getLimitOfWithdrawal()>amount && (toUser.bank.getLimitOfFunding()>amount || toUser.bank.getLimitOfFunding()==0))
+        {
+            withdrawOfUser(fromUser,amount);
+            fundUser(toUser,amount);
+        }
+    }
+
+    public void paySalary(User user) {
+        user.balance +=user.salary;
+    }
+}
 
 public class task_4 {
     public static void main (String[] args)
     {
         System.out.println("Hello!!");
+        USBank AmeriCan = new USBank(123456789,"USA",Currencys.USD,55,123,98,1000000000);
+        USBank LondonCan = new USBank(123456780,"England",Currencys.EUR,88,15.6,99,2000000000);
+
+        EUBank DeucheBank = new EUBank(987654321,"Germany",Currencys.EUR,32,12,98,1800000000);
+        EUBank OshadBank = new EUBank(777777777,"Ukraine",Currencys.USD,237,25,48,50000000);
+
+        ChinaBank KomunaBank = new ChinaBank(123456789,"China",Currencys.USD,1200,123,97,2000000000);
+        ChinaBank GBBank = new ChinaBank(123456780,"Singapour",Currencys.EUR,875,123,95,2000000000);
+
+        User usr1 = new User(11111111,"John Smit",1000,15,"IT.devel.cech",2500,AmeriCan);
+        User usr2 = new User(22222222,"Mr. Been",350,14,"GolbalLogic",3800,LondonCan);
+        User usr3 = new User(33333333,"Gans Schmidt",1000,13,"Epam",2700,DeucheBank);
+        User usr4 = new User(44444444,"Ivanov Ivan",80,12,"SoftDev",400,OshadBank);
+        User usr5 = new User(55555555,"Li Si Cin",700,11,"IT.devel.cech",1200,KomunaBank);
+        User usr6 = new User(66666666,"Hu win Chan",800,10,"IT.devel.cech",1300,GBBank);
+
+        System.out.println(usr2.toString());
+
     }
 }
