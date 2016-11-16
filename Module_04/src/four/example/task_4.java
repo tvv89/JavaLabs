@@ -312,9 +312,14 @@ class BankSystemImpl implements BankSystem
     }
 }
 
+/*********************
+ ******* task #6 ******
+ **********************/
+
 public class task_4 {
     public static void main (String[] args)
     {
+
         // Create 6 banks
         USBank AmeriCan = new USBank(123456789,"USA",Currencys.USD,55,123,98,1000000000);
         USBank LondonCan = new USBank(123456780,"England",Currencys.EUR,88,15.6,99,2000000000);
