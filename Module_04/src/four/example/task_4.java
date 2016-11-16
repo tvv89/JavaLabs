@@ -315,7 +315,7 @@ class BankSystemImpl implements BankSystem
 public class task_4 {
     public static void main (String[] args)
     {
-        System.out.println("Hello!!");
+        // Create 6 banks
         USBank AmeriCan = new USBank(123456789,"USA",Currencys.USD,55,123,98,1000000000);
         USBank LondonCan = new USBank(123456780,"England",Currencys.EUR,88,15.6,99,2000000000);
 
@@ -325,6 +325,7 @@ public class task_4 {
         ChinaBank KomunaBank = new ChinaBank(123456789,"China",Currencys.USD,1200,123,97,2000000000);
         ChinaBank GBBank = new ChinaBank(123456780,"Singapour",Currencys.EUR,875,123,95,2000000000);
 
+        // Create 6 different users
         User usr1 = new User(11111111,"John Smit",1000,15,"IT.devel.cech",2500,AmeriCan);
         User usr2 = new User(22222222,"Mr. Been",350,14,"GolbalLogic",3800,LondonCan);
         User usr3 = new User(33333333,"Gans Schmidt",1000,13,"Epam",2700,DeucheBank);
@@ -332,7 +333,9 @@ public class task_4 {
         User usr5 = new User(55555555,"Li Si Cin",700,11,"ChinaSoft",1200,KomunaBank);
         User usr6 = new User(66666666,"Hu win Chan",800,10,"IT.hueWay",1300,GBBank);
 
+        //use 4 different methods for all users
         BankSystemImpl bankomat_operation = new BankSystemImpl();
+
         // for User #1
         System.out.println(usr1.toString());
         System.out.print(usr1.balance+" ");
