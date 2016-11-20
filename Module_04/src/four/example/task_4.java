@@ -16,13 +16,13 @@ enum Currencys {USD, EUR};
 abstract class Bank
 {
 
-    long id;
-    String bankCountry;
-    Currencys currency;
-    int numberOfEmployees;
-    double avrSalaryOfEmployee;
-    long rating;
-    long totalCapital;
+    private long id;
+    private String bankCountry;
+    private Currencys currency;
+    private int numberOfEmployees;
+    private double avrSalaryOfEmployee;
+    private long rating;
+    private long totalCapital;
 
     abstract int getLimitOfWithdrawal();
     abstract int getLimitOfFunding();
@@ -126,19 +126,20 @@ class USBank extends Bank
     public int getMonthlyRate()
     {
         int rate = 0;
-        if (this.currency == Currencys.USD) rate = 1;
-        if (this.currency == Currencys.EUR) rate =2;
+        if (this.getCurrency() == Currencys.USD) rate = 1;
+        if (this.getCurrency() == Currencys.EUR) rate =2;
         return rate;
     }
     public int getCommission(int summ)
     {
         int commission = 0;
-        if (this.currency == Currencys.USD)
+        if (this.getCurrency() == Currencys.USD)
         {
             if (summ < 1000) commission = 5;
             else commission = 7;
         }
-        if (this.currency == Currencys.EUR)
+        if (this.getCurrency()
+                == Currencys.EUR)
         {
             if (summ < 1000) commission = 6;
             else commission = 8;
@@ -172,18 +173,18 @@ class EUBank extends Bank
     public int getMonthlyRate()
     {
         int rate = 0;
-        if (this.currency == Currencys.EUR) rate = 1;
+        if (this.getCurrency() == Currencys.EUR) rate = 1;
         return  rate;
     }
     public int getCommission(int summ)
     {
         int commission = 0;
-        if (this.currency == Currencys.USD)
+        if (this.getCurrency() == Currencys.USD)
         {
             if (summ < 1000) commission = 5;
             else commission = 7;
         }
-        if (this.currency == Currencys.EUR)
+        if (this.getCurrency() == Currencys.EUR)
         {
             if (summ < 1000) commission = 2;
             else commission = 4;
@@ -217,18 +218,18 @@ class ChinaBank extends Bank
     public int getMonthlyRate()
     {
         int rate = 0;
-        if (this.currency == Currencys.USD) rate = 1;
+        if (this.getCurrency() == Currencys.USD) rate = 1;
         return  rate;
     }
     public int getCommission(int summ)
     {
         int commission = 0;
-        if (this.currency == Currencys.USD)
+        if (this.getCurrency() == Currencys.USD)
         {
             if (summ < 1000) commission = 3;
             else commission = 5;
         }
-        if (this.currency == Currencys.EUR)
+        if (this.getCurrency() == Currencys.EUR)
         {
             if (summ < 1000) commission = 10;
             else commission = 11;
