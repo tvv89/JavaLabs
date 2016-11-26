@@ -1,7 +1,5 @@
 package homework;
 
-import java.util.Date;
-
 /**
  * Created by Volodymyr Tymchuk on 26.11.2016 for JavaLabs.
  */
@@ -22,6 +20,8 @@ public class TripAdvisorAPI implements API {
 
         for (Room i: rooms)
         {
+            //сдесь формируются уникальные выборки поиска по
+            //комнтатам для отображения пользователю
             if ((i.getPrice()>=price-100)   && (i.getPrice()<=price+100)
              && (i.getPersons()>=persons-1) && (i.getPersons()<=persons+1)
              && i.getHotelName().contains(hotel))

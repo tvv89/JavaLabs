@@ -1,6 +1,6 @@
 package homework;
 
-import java.util.Date;
+
 
 /**
  * Created by Volodymyr Tymchuk on 26.11.2016 for JavaLabs.
@@ -17,8 +17,6 @@ public class DAOImpl implements DAO {
 
     public Room save(Room room)
     {
-
-
         rooms[rooms.length] = room;
         System.out.println("save " +room.toString());
       return room;
