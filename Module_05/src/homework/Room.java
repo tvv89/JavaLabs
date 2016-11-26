@@ -98,13 +98,14 @@ public class Room {
     //только для удобства отображение (этого нет в задании!!)
     @Override
     public String toString() {
-        return "Room{" +
+        return (this != null) ? "Room{" +
                 "id=" + id +
                 ", price=" + price +
                 ", persons=" + persons +
-                ", dateAvailableFrom=" + dateAvailableFrom +
-                ", hotelName='" + hotelName + '\'' +
-                ", cityName='" + cityName + '\'' +
-                '}';
+                ", dateAvailableFrom=" + dateAvailableFrom.toString() +
+                ", hotelName='" + hotelName.toString() + '\'' +
+                ", cityName='" + cityName.toString() + '\'' +
+                '}': "null";
+
     }
 }
