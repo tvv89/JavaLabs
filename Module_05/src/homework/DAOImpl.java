@@ -54,6 +54,8 @@ public class DAOImpl implements DAO {
             //сравнение по equal
             if (i.equals(room))
             {
+                //в методе не описано что на что обновлять
+                //поєтому просто показано обновление имя отеля
                 i.setHotelName(i.getHotelName()+"_update");
                 break;
             }

@@ -38,7 +38,14 @@ public class Main {
         }
 
         System.out.println("-----------check------------");
-        Room[] ch_rooms = request.check(new GoogleAPI(All_app), new TripAdvisorAPI(All_app),320,1,"Kyiv","28");
+
+        API api1 = new GoogleAPI(All_app);
+        API api2 = new TripAdvisorAPI(All_app);
+
+        System.out.println(api1.getClass().getName() + "<---->" + api2.getClass().getName());
+        System.out.println();
+
+        Room[] ch_rooms = request.check(api1,api2,320,1,"Kyiv","28");
         int count = 0;
         Room i = ch_rooms[count];
 
