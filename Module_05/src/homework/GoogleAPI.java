@@ -12,16 +12,25 @@ import java.util.Date;
 public class GoogleAPI implements API {
     private Room[] rooms;
 
-    public GoogleAPI(Room[] roooms) {
-        this.rooms = roooms;
+    public GoogleAPI(Room[] rooms) {
+        this.rooms = rooms;
     }
 
     public Room[] findRooms(int price, int persons, String city, String hotel)
     {
-        //have to be CODE
 
+        int tmp_coumt = 0;
+        Room[] tmp = new Room[tmp_coumt];
 
-        return rooms;
+        for (Room i: rooms)
+        {
+            if (i.getPrice()<=price && i.getPersons()>=persons && i.getHotelName().contains(hotel))
+            {
+                tmp[tmp_coumt] = i;
+                tmp_coumt++;
+            }
+        }
+        return tmp;
     }
 
 

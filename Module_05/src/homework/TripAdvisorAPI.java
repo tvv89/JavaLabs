@@ -17,9 +17,20 @@ public class TripAdvisorAPI implements API {
 
     public Room[] findRooms(int price, int persons, String city, String hotel)
     {
-        // have to be CODE
+        int tmp_count = 0;
+        Room[] tmp = new Room[tmp_count];
 
-        return rooms;
+        for (Room i: rooms)
+        {
+            if ((i.getPrice()>=price-100)   && (i.getPrice()<=price+100)
+             && (i.getPersons()>=persons-1) && (i.getPersons()<=persons+1)
+             && i.getHotelName().contains(hotel))
+            {
+                tmp[tmp_count] = i;
+                tmp_count++;
+            }
+        }
+        return tmp;
     }
 
 }

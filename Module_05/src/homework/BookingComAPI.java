@@ -1,7 +1,5 @@
 package homework;
 
-import java.util.Date;
-
 /**
  * Created by Volodymyr Tymchuk on 26.11.2016 for JavaLabs.
  */
@@ -17,9 +15,20 @@ public class BookingComAPI implements API {
 
     public Room[] findRooms(int price, int persons, String city, String hotel)
     {
-        // have to be CODE
 
-        return rooms;
+        int tmp_count = 0;
+        Room test = new Room(0,price,persons,null,hotel,city);
+        Room[] tmp = new Room[tmp_count];
+
+        for (Room i: rooms)
+        {
+            if (i.equals(test))
+            {
+                tmp[tmp_count] = i;
+                tmp_count++;
+            }
+        }
+        return tmp;
     }
 
 }
