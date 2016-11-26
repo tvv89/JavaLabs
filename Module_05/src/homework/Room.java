@@ -95,6 +95,7 @@ public class Room {
         return Objects.hash(price, persons, cityName);
     }
 
+    //только для удобства отображение (этого нет в задании!!)
     @Override
     public String toString() {
         return "Room{" +
