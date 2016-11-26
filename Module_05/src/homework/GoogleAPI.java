@@ -20,11 +20,13 @@ public class GoogleAPI implements API {
     {
 
         int tmp_count = 0;
-        Room[] tmp = new Room[tmp_count];
+        Room[] tmp = new Room[rooms.length];
 
         for (Room i: rooms)
         {
-            if (i.getPrice()<=price && i.getPersons()>=persons && i.getHotelName().contains(hotel))
+            if (i.getPrice()<=price && i.getPersons()>=persons
+                && i.getHotelName().contains(hotel)
+                && i.getCityName().contains(city))
             {
                 tmp[tmp_count] = i;
                 tmp_count++;

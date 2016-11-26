@@ -18,7 +18,7 @@ public class BookingComAPI implements API {
 
         int tmp_count = 0;
         Room test = new Room(0,price,persons,null,hotel,city);
-        Room[] tmp = new Room[tmp_count];
+        Room[] tmp = new Room[rooms.length];
 
         for (Room i: rooms)
         {
