@@ -19,7 +19,9 @@ public class BookingComAPI implements API {
         int tmp_count = 0;
         Room test = new Room(0,price,persons,null,hotel,city);
         Room[] tmp = new Room[rooms.length];
-
+        //сдесь формируются уникальные выборки поиска по
+        //комнатам для отображения пользователю
+        //тупое/прямолинейное сравнение, чтоб показать использование equals
         for (Room i: rooms)
         {
             if (i.equals(test))

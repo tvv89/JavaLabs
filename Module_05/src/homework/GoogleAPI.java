@@ -24,6 +24,12 @@ public class GoogleAPI implements API {
 
         for (Room i: rooms)
         {
+            //здесь мы формируем список
+            //интелектуальная выборка
+
+            //если цена ниже, а количество человек больше
+            //и название отеля содержит то что в запросе
+            //и город который указан в запросе
             if (i.getPrice()<=price && i.getPersons()>=persons
                 && i.getHotelName().contains(hotel)
                 && i.getCityName().contains(city))
