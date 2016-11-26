@@ -76,4 +76,12 @@ public class DAOImpl implements DAO {
         return tmp;
 
     }
+
+    /*********************
+     ******* task #9 ******
+     **********************/
+    //возвращаем всю входящую базу данных
+    public Room[] getAll() {
+        return rooms;
+    }
 }
