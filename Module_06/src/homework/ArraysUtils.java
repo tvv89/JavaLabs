@@ -5,7 +5,7 @@ import java.util.Arrays;
 /**
  * Created by Volodymyr Tymchuk on 04.12.2016 for JavaLabs.
  */
-public class ArraysUtils {
+public final class ArraysUtils {
 
     public static int sum(int[] array)
     {
