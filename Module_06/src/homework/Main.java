@@ -29,28 +29,31 @@ public class Main {
         System.out.println();
 
 
-   /*     User[] users = new User[10];
+        User[] users = new User[10];
         for (int i = 0; i <users.length ; i++) {
             users[i] = new User(i+11111111,"User_first_"+i, "User_last_"+i,1000+i*50,5000+i*10);
         }
+
         //UserUtils.printArray(users);
+        System.out.println("---------- uniqueUsers----------");
+        UserUtils.printArray(UserUtils.uniqueUsers(users));
 
-        //UserUtils.printArray(UserUtils.uniqueUsers(users));
+        System.out.println("---------- usersWithContitionalBalance ----------");
+        UserUtils.printArray(UserUtils.usersWithContitionalBalance(users,5050));
 
-        //UserUtils.printArray(UserUtils.usersWithContitionalBalance(users,5050));
+        System.out.println("---------- paySalaryToUsers ----------");
+        UserUtils.printArray(UserUtils.paySalaryToUsers(users));
 
-        //UserUtils.printArray(UserUtils.paySalaryToUsers(users));
-
-        /*
+        System.out.println("---------- getUsersId ----------");
         long[] idOfUsers;
         idOfUsers = UserUtils.getUsersId(users);
         for (long i: idOfUsers) {
             System.out.print(i + " ");
         }
         System.out.println();
-        */
 
-   //     UserUtils.printArray(UserUtils.deleteEmptyUsers(users));
+        System.out.println("---------- deleteEmptyUsers ----------");
+        UserUtils.printArray(UserUtils.deleteEmptyUsers(users));
 
     }
 
