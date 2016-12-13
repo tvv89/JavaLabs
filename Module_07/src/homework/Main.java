@@ -7,10 +7,10 @@ import java.util.*;
  */
 public class Main {
     //для решения задачи по вычислению времени созданы функции
-    //для простоты передаем сюда общий List<> и количество уже созданых элементов чтоб побольше унифицировать
+    //для простоты передаем сюда общий List<>, количество уже созданых элементов и название метода,
+    // чтоб побольше унифицировать
     //поскольку мы Дженерики не проходили - еще больше унифицировать не получилось
 
-    //ADD
     public static long Integer_time_exec(List<Integer> inList,long count, String methodName)
     {
         inList.clear();
@@ -81,7 +81,7 @@ public class Main {
     public static void main(String[] args) {
         //заготовка для формирования пользователей, валюты и городов
         //это используется только для проверки/автозаполнения
-        //чтоб не вводить все в русную для каждого пользователя и заявки
+        //чтоб не вводить все в ручную для каждого пользователя и заявки
         String[] cities = {"Kiev", "London", "NY", "Paris", "Lviv"};
         Order.Currency[] curr = {Order.Currency.EUR, Order.Currency.USD, Order.Currency.UAH};
         String [] userLastName = {"Ivanov", "Petrov", "Sidorov","Smit", "Valera"};
