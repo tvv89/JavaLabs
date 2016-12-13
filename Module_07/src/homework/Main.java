@@ -142,9 +142,10 @@ public class Main {
 
         //удалить элементы с ценой ниже 1500
         //примитивный обход по всех значениях коллекции
-        for (int i=0; i<DBtrans.size();i++)
+        Iterator<Order> iter = DBtrans.iterator();
+        while (iter.hasNext())
         {
-            if (DBtrans.get(i).getPrice()<1500) DBtrans.remove(i);
+            if (iter.next().getPrice()<1500) DBtrans.remove(iter);
         }
 
         //примитивное создание двух листов в зависимости от ВАЛЮТЫ
