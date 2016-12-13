@@ -213,6 +213,15 @@ public class Main {
         //и где тут брать один метод "GET"???
         System.out.println(OrderForSet.last().toString());
 
+        //удаляем все записи где валюта USD
+        //для єтого используем итератор
+        Iterator<Order> iterator = OrderForSet.iterator();
+        while (iterator.hasNext())
+        {
+            if (iterator.next().getCurrency() == Order.Currency.USD) iterator.remove();
+        }
+
+
 
         /* -------------------------
         ---------- task #5 ---------
