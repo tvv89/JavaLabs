@@ -221,8 +221,6 @@ public class Main {
             if (iterator.next().getCurrency() == Order.Currency.USD) iterator.remove();
         }
 
-
-
         /* -------------------------
         ---------- task #5 ---------
         ----------------------------*/
