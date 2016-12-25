@@ -6,12 +6,14 @@ import java.util.Objects;
  * Created by Volodymyr Tymchuk on 11.12.2016 for JavaLabs.
  */
 public class User {
+    private long id;
     private String firstName;
     private String lastName;
     private String city;
     private int balance;
 
-    public User(String firstName, String lastName, String city, int balance) {
+    public User(long id, String firstName, String lastName, String city, int balance) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.city = city;
@@ -30,6 +32,14 @@ public class User {
 
     public int hashCode() {
         return Objects.hash(firstName, lastName, city, balance);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -67,7 +77,8 @@ public class User {
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("User{");
-        sb.append("firstName='").append(firstName).append('\'');
+        sb.append("id='").append(id).append('\'');
+        sb.append(", firstName='").append(firstName).append('\'');
         sb.append(", lastName='").append(lastName).append('\'');
         sb.append(", city='").append(city).append('\'');
         sb.append(", balance=").append(balance);

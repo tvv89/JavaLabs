@@ -91,7 +91,7 @@ public class Main {
         ----------------------------*/
         List<Order> DBtrans = new ArrayList<Order>();
         for (int i = 0; i <10 ; i++) {
-            User usrTMP = new User("User Name_"+i, userLastName[new Random().nextInt(5)], cities[i%5], 1000+i*100);
+            User usrTMP = new User(10000+i,"User Name_"+i, userLastName[new Random().nextInt(5)], cities[i%5], 1000+i*100);
             Order ordTMP = new Order(1000000+i,1475+ (new Random().nextInt(50)), curr[i%3],"Product_"+(new Random().nextInt(20)),"shopIdentificator_"+(i+37),usrTMP);
             DBtrans.add(ordTMP);
         }
@@ -183,7 +183,7 @@ public class Main {
         TreeSet<Order> OrderForSet = new TreeSet<>();
         List<User> usersList  = new ArrayList<>();
         for (int i = 0; i <10 ; i++) {
-            usersList.add(new User("User Name_"+i, userLastName[new Random().nextInt(5)], cities[i%5], 1000+i*100));
+            usersList.add(new User(10000+i,"User Name_"+i, userLastName[new Random().nextInt(5)], cities[i%5], 1000+i*100));
         }
         //уникальные заказы
         OrderForSet.add(new Order(1000001,1600, Order.Currency.EUR,"Product_1","shopIdentificator_1",usersList.get(1)));
