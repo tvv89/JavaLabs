@@ -29,13 +29,13 @@ public class AbstractDAOImpl <T> implements AbstractDAO {
     }
 
     @Override
-    public void deleteAll(List T) {
-        T.clear();
+    public void deleteAll(List Tl) {
+        this.DB.removeAll(Tl);
     }
 
     @Override
-    public void saveAll(List T) {
-        this.DB.addAll(T);
+    public void saveAll(List Tl) {
+        this.DB.addAll(Tl);
     }
 
     @Override
