@@ -37,6 +37,21 @@ public class Main {
         ****** Task #3******
         ---------------------
          */
+        Boolean test_task3 = null;
+        try {
+            System.out.println(test_task3.toString());
+        }
+        catch (NullPointerException e)
+        {
+            System.out.println("This value is NULL");
+        }
+        catch (Exception e)
+        {
+            System.out.println("Some Exception");
+        }
+        finally {
+            System.out.println("Executed!");
+        }
 
     }
 }
