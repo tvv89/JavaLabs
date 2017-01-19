@@ -1,5 +1,6 @@
 package homework;
 
+
 /**
  * Created by Volodymyr Tymchuk on 19.01.2017 for JavaLabs.
  */
@@ -15,5 +16,27 @@ public class Main {
         finally {
             System.out.println("Executed!");
         }
+
+        /*
+        ---------------------
+        ****** Task #2******
+        ---------------------
+         */
+        try {
+            throw new MyOwnException("Task #2 complete");
+        }
+        catch (MyOwnException e)
+        {
+            e.ShowMsg();
+        }
+        finally {
+            System.out.println("Executed!");
+        }
+        /*
+        ---------------------
+        ****** Task #3******
+        ---------------------
+         */
+
     }
 }
