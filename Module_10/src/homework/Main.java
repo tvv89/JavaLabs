@@ -69,6 +69,33 @@ public class Main {
         finally {
             System.out.println("Executed!");
         }
+        /*
+        ---------------------
+        ****** Task #5******
+        ---------------------
+         */
+        ClassWith3Exception task5 = new ClassWith3Exception();
+        try {
+            task5.getTestException("1");
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage() + " "+ e.getClass());
+        }
+        try {
+            task5.getTestException("2");
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage() + " "+ e.getClass());
+        }
+        try {
+            task5.getTestException("3");
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage() + " "+ e.getClass());
+        }
 
     }
 }
