@@ -59,6 +59,7 @@ public class Main {
          */
         ClassWithException newRef = new ClassWithException();
         try {
+
             newRef.f();
         }
         catch (ExceptionForF eff)
