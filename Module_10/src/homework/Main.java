@@ -52,6 +52,22 @@ public class Main {
         finally {
             System.out.println("Executed!");
         }
+        /*
+        ---------------------
+        ****** Task #4******
+        ---------------------
+         */
+        ClassWithException newRef = new ClassWithException();
+        try {
+            newRef.f();
+        }
+        catch (ExceptionForF eff)
+        {
+            System.out.println(eff.getTextMsg());
+        }
+        finally {
+            System.out.println("Executed!");
+        }
 
     }
 }
