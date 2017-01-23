@@ -164,7 +164,7 @@ public class Main {
         -------Task#2-------
         --------------------
         */
-      //  System.out.println(fileContentReplacer(newMap).toString() + " was changed");
+        System.out.println(fileContentReplacer(newMap).toString() + " was changed");
 
         /*
         --------------------
