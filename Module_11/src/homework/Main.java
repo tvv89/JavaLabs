@@ -79,6 +79,29 @@ public class Main {
         return res;
     }
 
+    /*
+    --------------------
+    -------Task#3-------
+    --------------------
+    */
+    public static File fileContentMerger(Map<String,String> map) throws IOException
+    {
+        FileWriter fileWriter = null;
+        try {
+            String toWrite = replacer(map);
+            fileWriter = new FileWriter(fileName,true);
+            fileWriter.write(System.lineSeparator());
+            fileWriter.write(toWrite);
+        } catch (IOException e) {
+            System.out.println("some problem with write file");
+        }
+        finally {
+            if (fileWriter != null) fileWriter.close();
+        }
+        File res = new File(fileName);
+        return res;
+    }
+
     public static void main(String[] args) throws IOException {
 
         Map<String,String> newMap = new HashMap<>();
@@ -97,6 +120,12 @@ public class Main {
         */
         System.out.println(fileContentReplacer(newMap).toString() + " was changed");
 
+        /*
+        --------------------
+        -------Task#3-------
+        --------------------
+        */
+        System.out.println(fileContentMerger(newMap).toString() + " was changed");
 
 
 
