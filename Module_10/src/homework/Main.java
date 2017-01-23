@@ -14,7 +14,7 @@ public class Main {
             System.out.println("Print test: "+e.getMessage());
         }
         finally {
-            System.out.println("Executed!");
+            System.out.println("Executed task#1!");
         }
 
         /*
@@ -30,7 +30,7 @@ public class Main {
             e.ShowMsg();
         }
         finally {
-            System.out.println("Executed!");
+            System.out.println("Executed task#2!");
         }
         /*
         ---------------------
@@ -50,7 +50,7 @@ public class Main {
             System.out.println("Some Exception");
         }
         finally {
-            System.out.println("Executed!");
+            System.out.println("Executed task#3!");
         }
         /*
         ---------------------
@@ -67,7 +67,7 @@ public class Main {
             System.out.println(eff.getTextMsg());
         }
         finally {
-            System.out.println("Executed!");
+            System.out.println("Executed task#4!");
         }
         /*
         ---------------------
