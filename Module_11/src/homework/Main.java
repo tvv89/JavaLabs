@@ -254,7 +254,7 @@ public class Main {
         */
         String word = "hello";
         System.out.println(word + " was in file " + checkWord(word) +" times (try-catch-finally)");
-        System.out.println(word + " was in file " + checkWord(word) +" times (try-with-recourse)");
+        System.out.println(word + " was in file " + checkWord2(word) +" times (try-with-recourse)");
 
 
 
