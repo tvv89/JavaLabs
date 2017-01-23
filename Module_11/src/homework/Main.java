@@ -102,10 +102,56 @@ public class Main {
         return res;
     }
 
+        /*
+        --------------------
+        -------Task#4-------
+        --------------------
+        */
+    public static int checkWord(String word) throws IOException
+    {
+
+        BufferedReader br;
+        StringBuilder sb;
+        FileReader fileReader = null;
+        try {
+            fileReader = new FileReader(fileName);
+            br = new BufferedReader(fileReader);
+            sb = new StringBuilder();
+            String line = br.readLine();
+            while (line != null) {
+                sb.append(line+ " ");
+                line = br.readLine();
+            }
+        } catch (FileNotFoundException e) {
+            return 0;
+        }
+        finally {
+            if (fileReader!=null) fileReader.close();
+        }
+
+
+        String allWords;
+        try {
+            allWords = sb.toString();
+        }
+        catch (NullPointerException e)
+        {
+            return 0;
+        }
+
+        int count = 0;
+        for (String i:allWords.split(" ")) {
+            if (i.equals(word)) count++ ;
+        }
+
+
+        return count;
+    }
+
     public static void main(String[] args) throws IOException {
 
         Map<String,String> newMap = new HashMap<>();
-        newMap.put("world","MIR");
+        newMap.put("world","Space");
         /*
         --------------------
         -------Task#1-------
@@ -118,7 +164,7 @@ public class Main {
         -------Task#2-------
         --------------------
         */
-        System.out.println(fileContentReplacer(newMap).toString() + " was changed");
+      //  System.out.println(fileContentReplacer(newMap).toString() + " was changed");
 
         /*
         --------------------
@@ -127,7 +173,13 @@ public class Main {
         */
         System.out.println(fileContentMerger(newMap).toString() + " was changed");
 
-
+        /*
+        --------------------
+        -------Task#4-------
+        --------------------
+        */
+        String word = "hello";
+        System.out.println(word + " was in file " + checkWord(word) +" times");
 
 
 
