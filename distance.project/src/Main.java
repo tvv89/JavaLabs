@@ -46,10 +46,11 @@ public class Main {
                 // в запросе адреса должны разделяться символом '|'
         params.put("destinations", Joiner.on('|').join(destionations));
         final String url = baseUrl + '?' + encodeParams(params);// генерируем путь с параметрами
-        System.out.println(url); // Можем проверить что вернет этот путь в браузере
+        //System.out.println(url); // Можем проверить что вернет этот путь в браузере
         JSONObject response = JsonReader.read(url);// делаем запрос к вебсервису и получаем от него ответ
+        Date start = new Date();
         JSONArray destin = response.getJSONArray("origin_addresses");
-        destin.forEach(System.out::println);
+        //destin.forEach(System.out::println);
         System.out.println((String)(destin.get(0)));
         for (int i=0; i<(response.getJSONArray("rows")).length();i++) {
            // System.out.println("el"+i+": "+response.getJSONArray("rows").getJSONObject(i));
@@ -57,15 +58,25 @@ public class Main {
             JSONArray array = location.getJSONArray("elements");
             for (int j=0; j<array.length();j++) {
                 JSONObject element = array.getJSONObject(j);
+
                 Integer dist_el = (Integer) ((JSONObject)element.get("distance")).get("value");
                 Integer time_el = (Integer) ((JSONObject)element.get("duration")).get("value");
-                tracks[i][j] = new TrackParameters(dist_el,time_el,destin.getString(i).toString(),destin.get(j).toString());
-                System.out.print("el["+i+", "+j+"]:"+dist_el+"m   "+time_el+"sec        ");
+                if (i==j)
+                {dist_el = 10000000;
+                time_el = 10000000;}
+                    tracks[i][j] = new TrackParameters(dist_el,time_el,destin.getString(i).toString(),destin.get(j).toString());
+                //System.out.print("el["+i+", "+j+"]:"+dist_el+"m   "+time_el+"sec        ");
 
             }
-            System.out.println();
+            //System.out.println();
         }
+        /*System.out.println(tracks.length);
         System.out.println();
+        Date stop = new Date();
+        System.out.println(stop.getTime()-start.getTime());*/
+        PostmanTrack tmp = new PostmanTrack(tracks);
+        tmp.Tracks();
+      //  tmp.printMass();
         //JSONObject location = response.getJSONArray("rows").getJSONObject(0);
         //JSONArray arrays = location.getJSONArray("elements");// Здесь лежат все рассчитанные значения
         // Ищем путь на который мы потратим минимум времени

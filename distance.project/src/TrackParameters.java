@@ -37,7 +37,7 @@ public class TrackParameters {
         Id = id;
     }
 
-    public long getDistance() {
+    public Integer getDistance() {
         return distance;
     }
 
