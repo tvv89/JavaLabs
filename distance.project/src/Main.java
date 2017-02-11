@@ -76,6 +76,9 @@ public class Main {
         System.out.println(stop.getTime()-start.getTime());*/
         PostmanTrack tmp = new PostmanTrack(tracks);
         tmp.Tracks();
+        System.out.println();
+       // System.out.println(tmp.grate_for_zero());
+       // System.out.println(tmp.max_of_grade(tmp.grate_for_zero()));
       //  tmp.printMass();
         //JSONObject location = response.getJSONArray("rows").getJSONObject(0);
         //JSONArray arrays = location.getJSONArray("elements");// Здесь лежат все рассчитанные значения

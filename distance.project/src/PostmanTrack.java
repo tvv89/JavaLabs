@@ -1,5 +1,6 @@
 import javafx.scene.input.InputMethodTextRun;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,29 +15,51 @@ public class PostmanTrack {
         this.mass = mass;
     }
     public void Tracks(){
-       // while(mass.length>1)
-        printMass();
-        System.out.println();
-        {
-            for (int i = 0; i <mass.length ; i++) {
-                Integer minROW = min_of_row(mass,i);
-                for (int j = 0; j <mass.length ; j++) {
-                    if (i!=j) mass[i][j].setDistance(mass[i][j].getDistance()-minROW);
-                }
-            }
-
+        while(mass.length>1) {
             printMass();
             System.out.println();
-            for (int j = 0; j <mass.length ; j++) {
-                Integer minCOL = min_of_col(mass,j);
+            {
                 for (int i = 0; i < mass.length; i++) {
-                    if (i!=j) mass[i][j].setDistance(mass[i][j].getDistance() - minCOL);
+                    Integer minROW = min_of_row(mass, i);
+                    for (int j = 0; j < mass.length; j++) {
+                        if (i != j) mass[i][j].setDistance(mass[i][j].getDistance() - minROW);
+                    }
+                }
+
+                printMass();
+                System.out.println();
+                for (int j = 0; j < mass.length; j++) {
+                    Integer minCOL = min_of_col(mass, j);
+                    for (int i = 0; i < mass.length; i++) {
+                        if (i != j) mass[i][j].setDistance(mass[i][j].getDistance() - minCOL);
+                    }
                 }
             }
+            printMass();
+            TrackParameters[][] mass_tmp = new TrackParameters[mass.length - 1][mass.length - 1];
+            int k = 0;
+            int l = 0;
+            Integer del_row = max_of_grade(grate_for_zero()).get(0);
+            Integer del_col = max_of_grade(grate_for_zero()).get(1);
+
+            for (int i = 0; i < mass.length; i++) {
+                if (i != del_row) {
+                    l = 0;
+                    for (int j = 0; j < mass.length; j++) {
+                        if (j != del_col) {
+
+                            mass_tmp[k][l] = mass[i][j];
+                            if (i == del_col && j == del_row) mass_tmp[k][l].setDistance(10000000);
+                            l++;
+                        }
+                    }
+                    k++;
+                }
+            }
+            mass = mass_tmp;
+            System.out.println();
+            printMass();
         }
-        printMass();
-
-
     }
     public void printMass()
     {
@@ -81,18 +104,31 @@ public class PostmanTrack {
         }
         return res;
     }
-    private Map<TrackParameters,Integer> grate_for_zero()
+    public Map<List<Integer>,Integer> grate_for_zero()
     {
-        Map<TrackParameters,Integer> result = new HashMap<>();
+        Map<List<Integer>,Integer> result = new HashMap<>();
         Integer res=0;
         for (int i = 0; i < mass.length; i++) {
             for (int j = 0; j <mass.length ; j++) {
-                 if (mass[i][j].getDistance()==0) {
+                 if (i!=j && mass[i][j].getDistance()==0) {
                      res = min_of_col_without(mass,i,j)+min_of_row_without(mass,i,j);
-                     result.put(mass[i][j],res);
+                     List<Integer> tmp = new ArrayList<>();
+                     tmp.add(i);
+                     tmp.add(j);
+                     result.put(tmp,res);
                  }
             }
         }
         return result;
+    }
+    public List<Integer> max_of_grade(Map<List<Integer>,Integer> input)
+    {
+        Integer res = input.values().stream().max(Integer::compareTo).get();
+        for (Map.Entry<List<Integer>,Integer> pair : input.entrySet()) {
+            if (res.equals(pair.getValue())) {
+                return pair.getKey();// нашли наше значение и возвращаем  ключ
+            }
+        }
+        return null;
     }
 }
