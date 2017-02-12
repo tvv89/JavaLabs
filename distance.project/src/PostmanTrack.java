@@ -1,20 +1,22 @@
 import javafx.scene.input.InputMethodTextRun;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 /**
  * Created by tvv89 on 08.02.2017 for JavaLabs.
  */
 public class PostmanTrack {
    private TrackParameters mass[][];
+   public List<TrackParameters> result_track;
 
     public PostmanTrack(TrackParameters[][] mass) {
         this.mass = mass;
     }
-    public void Tracks(){
+    public void Tracks()
+    {
+        List<TrackParameters> tmp_track= new ArrayList<>();
         while(mass.length>1) {
             printMass();
             System.out.println();
@@ -41,13 +43,12 @@ public class PostmanTrack {
             int l = 0;
             Integer del_row = max_of_grade(grate_for_zero()).get(0);
             Integer del_col = max_of_grade(grate_for_zero()).get(1);
-
+            tmp_track.add(mass[del_row][del_col]);
             for (int i = 0; i < mass.length; i++) {
                 if (i != del_row) {
                     l = 0;
                     for (int j = 0; j < mass.length; j++) {
                         if (j != del_col) {
-
                             mass_tmp[k][l] = mass[i][j];
                             if (i == del_col && j == del_row) mass_tmp[k][l].setDistance(10000000);
                             l++;
@@ -59,6 +60,12 @@ public class PostmanTrack {
             mass = mass_tmp;
             System.out.println();
             printMass();
+
+        }
+        tmp_track.add(mass[0][0]);
+        result_track=tmp_track;
+        for (TrackParameters i: result_track) {
+
         }
     }
     public void printMass()
@@ -130,5 +137,20 @@ public class PostmanTrack {
             }
         }
         return null;
+    }
+    public List<TrackParameters> sorted_track(String first)
+    {
+        List<TrackParameters> tmp = new ArrayList<>();
+        Optional<TrackParameters> remove_object = result_track.stream().filter(a -> a.getOrigin_coord().equals(first)).findFirst();
+        tmp.add(remove_object.get());
+        result_track.remove(remove_object.get());
+        while (!result_track.isEmpty()) {
+            remove_object = result_track.stream().filter(a -> a.getOrigin_coord()
+                    .equals(tmp.get(tmp.size()-1)
+                            .getDestination_coord())).findFirst();
+            tmp.add(remove_object.get());
+            result_track.remove(remove_object.get());
+        }
+        return tmp;
     }
 }

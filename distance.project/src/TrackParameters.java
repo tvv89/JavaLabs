@@ -13,6 +13,8 @@ public class TrackParameters {
     private double endLon;
     private String Origin;
     private String Destination;
+    private String Origin_coord;
+    private String Destination_coord;
 
 
     public TrackParameters(Integer distance, Integer time) {
@@ -27,6 +29,37 @@ public class TrackParameters {
         this.time = time;
         Origin = origin;
         Destination = destination;
+    }
+
+    public TrackParameters(Integer distance, Integer time, String origin, String destination, String origin_coord, String destination_coord) {
+        this.Id = UUID.randomUUID();
+        this.distance = distance;
+        this.time = time;
+        this.Origin = origin;
+        this.Destination = destination;
+        this.Origin_coord = origin_coord;
+        this.Destination_coord = destination_coord;
+    }
+
+    @Override
+    public String toString() {
+        return this.getOrigin_coord()+"  "+this.getDestination_coord();
+    }
+
+    public String getOrigin_coord() {
+        return Origin_coord;
+    }
+
+    public void setOrigin_coord(String origin_coord) {
+        Origin_coord = origin_coord;
+    }
+
+    public String getDestination_coord() {
+        return Destination_coord;
+    }
+
+    public void setDestination_coord(String destination_coord) {
+        Destination_coord = destination_coord;
     }
 
     public UUID getId() {
