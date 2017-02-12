@@ -1,0 +1,11 @@
+<application>
+  <component name="libraryTable">
+    <library name="guava-21.0-sources">
+      <CLASSES />
+      <JAVADOC />
+      <SOURCES>
+        <root url="jar://D:/my/GoJava5/gsn-tvv/guava-21.0-sources.jar!/" />
+      </SOURCES>
+    </library>
+  </component>
+</application>
