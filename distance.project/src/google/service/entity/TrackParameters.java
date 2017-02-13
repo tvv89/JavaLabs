@@ -1,3 +1,5 @@
+package google.service.entity;
+
 import java.util.UUID;
 
 /**
@@ -18,7 +20,7 @@ public class TrackParameters {
 
 
     public TrackParameters(Integer distance, Integer time) {
-
+        this.Id = UUID.randomUUID();
         this.distance = distance;
         this.time = time;
     }
@@ -43,7 +45,7 @@ public class TrackParameters {
 
     @Override
     public String toString() {
-        return this.getOrigin_coord()+"  "+this.getDestination_coord();
+        return this.getOrigin()+"----->"+this.getDestination();
     }
 
     public String getOrigin_coord() {

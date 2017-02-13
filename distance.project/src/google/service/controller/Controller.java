@@ -1,19 +1,20 @@
-import javafx.scene.input.InputMethodTextRun;
+package google.service.controller;
+
+import google.service.entity.TrackParameters;
 
 import java.util.*;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 
 /**
  * Created by tvv89 on 08.02.2017 for JavaLabs.
  */
-public class PostmanTrack {
+public class Controller {
    private TrackParameters mass[][];
    public List<TrackParameters> result_track;
 
-    public PostmanTrack(TrackParameters[][] mass) {
+    public Controller(TrackParameters[][] mass) {
         this.mass = mass;
     }
+
     public void Tracks()
     {
         List<TrackParameters> tmp_track= new ArrayList<>();
@@ -27,7 +28,6 @@ public class PostmanTrack {
                         if (i != j) mass[i][j].setDistance(mass[i][j].getDistance() - minROW);
                     }
                 }
-
                 printMass();
                 System.out.println();
                 for (int j = 0; j < mass.length; j++) {
@@ -60,13 +60,9 @@ public class PostmanTrack {
             mass = mass_tmp;
             System.out.println();
             printMass();
-
         }
         tmp_track.add(mass[0][0]);
         result_track=tmp_track;
-        for (TrackParameters i: result_track) {
-
-        }
     }
     public void printMass()
     {
@@ -141,13 +137,15 @@ public class PostmanTrack {
     public List<TrackParameters> sorted_track(String first)
     {
         List<TrackParameters> tmp = new ArrayList<>();
-        Optional<TrackParameters> remove_object = result_track.stream().filter(a -> a.getOrigin_coord().equals(first)).findFirst();
+        Optional<TrackParameters> remove_object = result_track.stream()
+                .filter(a -> a.getOrigin().equals(first))
+                .findFirst();
         tmp.add(remove_object.get());
         result_track.remove(remove_object.get());
         while (!result_track.isEmpty()) {
-            remove_object = result_track.stream().filter(a -> a.getOrigin_coord()
+            remove_object = result_track.stream().filter(a -> a.getOrigin()
                     .equals(tmp.get(tmp.size()-1)
-                            .getDestination_coord())).findFirst();
+                            .getDestination())).findFirst();
             tmp.add(remove_object.get());
             result_track.remove(remove_object.get());
         }
