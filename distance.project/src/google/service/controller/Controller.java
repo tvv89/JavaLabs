@@ -60,6 +60,7 @@ public class Controller {
             mass = mass_tmp;
             System.out.println();
             printMass();
+            System.out.println();
         }
         tmp_track.add(mass[0][0]);
         result_track=tmp_track;
@@ -144,7 +145,7 @@ public class Controller {
         result_track.remove(remove_object.get());
         while (!result_track.isEmpty()) {
             remove_object = result_track.stream().filter(a -> a.getOrigin()
-                    .equals(tmp.get(tmp.size()-1)
+                    .contains(tmp.get(tmp.size()-1)
                             .getDestination())).findFirst();
             tmp.add(remove_object.get());
             result_track.remove(remove_object.get());

@@ -25,7 +25,10 @@ public class Main {
                 "50.445344,30.506468",
                 "50.446324,30.513731",
                 "50.461141,30.521590",
-                "50.409671,30.634816"
+                "50.409671,30.634816",
+                "50.437116,30.436232",
+                "50.430429,30.516551",
+                "50.510761,30.420233"
         };
         // адрес или координаты пунктов назначения
         final String[] destionations = { //
@@ -33,7 +36,10 @@ public class Main {
                 "50.445344,30.506468",
                 "50.446324,30.513731",
                 "50.461141,30.521590",
-                "50.409671,30.634816"
+                "50.409671,30.634816",
+                "50.437116,30.436232",
+                "50.430429,30.516551",
+                "50.510761,30.420233"
         };
         TrackParameters[][] tracks;
         JSONrequest request = new JSONrequest();
@@ -41,7 +47,7 @@ public class Main {
         Controller tmp = new Controller(tracks);
         tmp.Tracks();
         System.out.println();
-        for (TrackParameters i:tmp.sorted_track(request.Origin_addr.get(0))) {
+        for (TrackParameters i:tmp.result_track) {
             System.out.println(i.toString());
         }
 
