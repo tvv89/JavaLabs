@@ -69,7 +69,7 @@ public class Controller {
     {
         for (int i = 0; i <mass.length ; i++) {
             for (int j = 0; j <mass.length ; j++) {
-                System.out.print(mass[i][j].getDistance()+"     ");
+                System.out.print(mass[i][j].getDistance()+";");
             }
             System.out.println();
         }

@@ -5,6 +5,7 @@ import com.google.common.collect.*;
 import google.service.JSONrequest;
 import google.service.JsonReader;
 import google.service.controller.Controller;
+import google.service.controller.ControllerCollections;
 import google.service.entity.TrackParameters;
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -41,15 +42,17 @@ public class Main {
                 "50.430429,30.516551",
                 "50.510761,30.420233"
         };
-        TrackParameters[][] tracks;
+        List<List<TrackParameters>> tracks = new ArrayList<>();
         JSONrequest request = new JSONrequest();
-        tracks = request.readMatrix(request.URL_api(origins,destionations));
-        Controller tmp = new Controller(tracks);
-        tmp.Tracks();
+        tracks = request.readMatrixToList(request.URL_api(origins,destionations));
+        ControllerCollections tmp = new ControllerCollections();
+        List<TrackParameters> res = new ArrayList<>();
+        res = tmp.Matrix_reduct(tracks);
+        res.forEach(System.out::println);
         System.out.println();
-        for (TrackParameters i:tmp.result_track) {
+        /*for (TrackParameters i:tmp.result_track) {
             System.out.println(i.toString());
-        }
+        }*/
 
     }
 
