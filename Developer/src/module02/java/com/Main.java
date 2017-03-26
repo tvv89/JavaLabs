@@ -1,10 +1,10 @@
 package module02.java.com;
 
-/**
- * Created by Admin on 07.03.2017.
- */
+import java.sql.SQLException;
+
 public class Main {
-    public static void main(String[] args) {
-        System.out.println("hello world");
+    public static void main(String[] args) throws SQLException, ClassNotFoundException
+    {
+
     }
 }
