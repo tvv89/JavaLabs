@@ -1,17 +1,27 @@
 package module03.entity;
 
+import jdk.nashorn.internal.objects.annotations.Getter;
+
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
-public class Developers {
+@Table(name = "developers")
+public class Developer {
     private int developerId;
     private String name;
     private String surname;
     private Integer salary;
+    @ManyToMany(targetEntity = Skill.class, cascade = CascadeType.DETACH)
+    @JoinTable (name = "developer_skill",
+            joinColumns = @JoinColumn(name = "developer_id"),
+            inverseJoinColumns = @JoinColumn(name = "skill_id"))
+    private Set<Skill> skills = new HashSet<>();
 
     @Id
     @Column(name = "developer_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getDeveloperId() {
         return developerId;
     }
@@ -55,7 +65,7 @@ public class Developers {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Developers that = (Developers) o;
+        Developer that = (Developer) o;
 
         if (developerId != that.developerId) return false;
         if (name != null ? !name.equals(that.name) : that.name != null) return false;

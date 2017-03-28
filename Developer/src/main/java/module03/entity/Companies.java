@@ -9,7 +9,7 @@ public class Companies {
 
     @Id
     @Column(name = "company_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getCompanyId() {
         return companyId;
     }

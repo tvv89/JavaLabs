@@ -3,13 +3,13 @@ package module03.entity;
 import javax.persistence.*;
 
 @Entity
-public class Skills {
+public class Skill {
     private int skillId;
     private String skillName;
 
     @Id
     @Column(name = "skill_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getSkillId() {
         return skillId;
     }
@@ -33,7 +33,7 @@ public class Skills {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Skills skills = (Skills) o;
+        Skill skills = (Skill) o;
 
         if (skillId != skills.skillId) return false;
         if (skillName != null ? !skillName.equals(skills.skillName) : skills.skillName != null) return false;

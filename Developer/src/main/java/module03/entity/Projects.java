@@ -10,7 +10,7 @@ public class Projects {
 
     @Id
     @Column(name = "project_id")
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     public int getProjectId() {
         return projectId;
     }
