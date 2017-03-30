@@ -32,7 +32,7 @@ public class ProjectRepo{
         Class.forName(JDBC_DRIVER);
         Connection connection = DriverManager.getConnection(DATABASE_URL, USER, PASSWORD);
         Statement statement = connection.createStatement();
-        ResultSet resultSet = statement.executeQuery("SELECT * FROM skills");
+        ResultSet resultSet = statement.executeQuery("SELECT * FROM projects");
         List <Project> select_projects = new ArrayList<>();
         while (resultSet.next()) {
             select_projects.add(new Project(resultSet.getLong("project_id"),
