@@ -1,7 +1,5 @@
 package module03.entity;
 
-import jdk.nashorn.internal.objects.annotations.Getter;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
@@ -18,6 +16,11 @@ public class Developer {
             joinColumns = @JoinColumn(name = "developer_id"),
             inverseJoinColumns = @JoinColumn(name = "skill_id"))
     private Set<Skill> skills = new HashSet<>();
+    @ManyToMany(targetEntity = Project.class, cascade = CascadeType.DETACH)
+    @JoinTable (name = "developer_project",
+            joinColumns = @JoinColumn(name = "developer_id"),
+            inverseJoinColumns = @JoinColumn(name = "project_id"))
+    private Set<Project> projects = new HashSet<>();
 
     @Id
     @Column(name = "developer_id")

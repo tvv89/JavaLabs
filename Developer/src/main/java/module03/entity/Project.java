@@ -1,11 +1,14 @@
 package module03.entity;
 
 import javax.persistence.*;
+import java.util.Objects;
 
 @Entity
-public class Projects {
+public class Project {
     private int projectId;
     private String projectName;
+    private int companyId;
+    private int customerId;
     private Double cost;
 
     @Id
@@ -39,26 +42,40 @@ public class Projects {
         this.cost = cost;
     }
 
+    @Basic
+    @Column(name = "company_id")
+    public int getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.companyId = companyId;
+    }
+
+    @Basic
+    @Column(name = "customer_id")
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
-        Projects projects = (Projects) o;
-
-        if (projectId != projects.projectId) return false;
-        if (projectName != null ? !projectName.equals(projects.projectName) : projects.projectName != null)
-            return false;
-        if (cost != null ? !cost.equals(projects.cost) : projects.cost != null) return false;
-
-        return true;
+        Project project = (Project) o;
+        return projectId == project.projectId &&
+                companyId == project.companyId &&
+                customerId == project.customerId &&
+                Objects.equals(projectName, project.projectName) &&
+                Objects.equals(cost, project.cost);
     }
 
     @Override
     public int hashCode() {
-        int result = projectId;
-        result = 31 * result + (projectName != null ? projectName.hashCode() : 0);
-        result = 31 * result + (cost != null ? cost.hashCode() : 0);
-        return result;
+        return Objects.hash(projectId, projectName, companyId, customerId, cost);
     }
 }

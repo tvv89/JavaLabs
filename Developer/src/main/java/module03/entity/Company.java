@@ -3,7 +3,7 @@ package module03.entity;
 import javax.persistence.*;
 
 @Entity
-public class Companies {
+public class Company {
     private int companyId;
     private String companyName;
 
@@ -33,7 +33,7 @@ public class Companies {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Companies companies = (Companies) o;
+        Company companies = (Company) o;
 
         if (companyId != companies.companyId) return false;
         if (companyName != null ? !companyName.equals(companies.companyName) : companies.companyName != null)

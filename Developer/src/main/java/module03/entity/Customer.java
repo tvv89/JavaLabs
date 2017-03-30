@@ -3,7 +3,7 @@ package module03.entity;
 import javax.persistence.*;
 
 @Entity
-public class Customers {
+public class Customer {
     private int customerId;
     private String customerName;
 
@@ -33,7 +33,7 @@ public class Customers {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Customers customers = (Customers) o;
+        Customer customers = (Customer) o;
 
         if (customerId != customers.customerId) return false;
         if (customerName != null ? !customerName.equals(customers.customerName) : customers.customerName != null)
