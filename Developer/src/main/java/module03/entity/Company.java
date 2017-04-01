@@ -3,9 +3,18 @@ package module03.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "companies")
 public class Company {
     private int companyId;
     private String companyName;
+
+    public Company() {
+    }
+
+    public Company(int companyId, String companyName) {
+        this.companyId = companyId;
+        this.companyName = companyName;
+    }
 
     @Id
     @Column(name = "company_id")
