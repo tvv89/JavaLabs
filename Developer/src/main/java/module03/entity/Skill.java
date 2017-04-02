@@ -3,9 +3,22 @@ package module03.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "skills")
 public class Skill {
     private int skillId;
     private String skillName;
+
+    public Skill() {
+    }
+
+    public Skill(int skillId, String skillName) {
+        this.skillId = skillId;
+        this.skillName = skillName;
+    }
+
+    public Skill(String skillName) {
+        this.skillName = skillName;
+    }
 
     @Id
     @Column(name = "skill_id")

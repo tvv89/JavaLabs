@@ -4,12 +4,23 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Table(name = "project")
 public class Project {
     private int projectId;
     private String projectName;
     private int companyId;
     private int customerId;
     private Double cost;
+
+    public Project() {
+    }
+
+    public Project(String projectName, int companyId, int customerId, Double cost) {
+        this.projectName = projectName;
+        this.companyId = companyId;
+        this.customerId = customerId;
+        this.cost = cost;
+    }
 
     @Id
     @Column(name = "project_id")

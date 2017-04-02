@@ -11,6 +11,18 @@ public class Developer {
     private String name;
     private String surname;
     private Integer salary;
+
+    public Developer() {
+    }
+
+    public Developer(String name, String surname, Integer salary, Set<Skill> skills, Set<Project> projects) {
+        this.name = name;
+        this.surname = surname;
+        this.salary = salary;
+        this.skills = skills;
+        this.projects = projects;
+    }
+
     @ManyToMany(targetEntity = Skill.class, cascade = CascadeType.DETACH)
     @JoinTable (name = "developer_skill",
             joinColumns = @JoinColumn(name = "developer_id"),
